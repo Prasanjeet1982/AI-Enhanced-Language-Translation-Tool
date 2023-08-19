@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>AI-Enhanced Language Translation Tool</title>
+</head>
+<body>
+    <h1>AI-Enhanced Language Translation Tool</h1>
+    <form action="/translate/" method="post">
+        <label for="source_text">Source Text:</label><br>
+        <textarea name="source_text" rows="4" cols="50" required></textarea><br>
+        <label for="target_language">Target Language Code:</label>
+        <input type="text" name="target_language" required><br><br>
+        <input type="submit" value="Translate">
+    </form>
+
+    {% if translated_text %}
+    <h2>Translated Text:</h2>
+    <p>{{ translated_text }}</p>
+    {% endif %}
+</body>
+</html>

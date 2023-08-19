@@ -1,0 +1,31 @@
+Let's go through the refactored code step by step to understand its structure and functionality:
+
+**translation_app/main.py:**
+
+- This file serves as the entry point for the application. It sets up and runs the FastAPI application.
+
+**translation_app/translation/translator.py:**
+
+- This module encapsulates the translation functionality.
+- The `translate_text` function takes the source text and target language as parameters and returns the translated text.
+- It uses the `translate` library to perform the translation.
+- Error handling is included to handle exceptions that might occur during translation.
+
+**translation_app/web/routes.py:**
+
+- This module defines the FastAPI routes and their associated handlers.
+- It imports the `translate_text` function from the `translator` module.
+- The `/` route serves as the main page and renders the `translate.html` template.
+- The `/translate/` route handles the translation process:
+  - The `source_text` and `target_language` are obtained from the form data.
+  - The `translate_text` function is called to perform the translation.
+  - The translated text is returned as a JSON response.
+
+**translation_app/templates/translate.html:**
+
+- This HTML template defines the structure of the web interface.
+- Users can input the source text and target language in the form fields.
+- Upon submission, the form data is sent to the `/translate/` route.
+- If translation is successful, the translated text is displayed.
+
+The overall organization separates the concerns of different components into distinct modules. The code is structured in a way that makes it easier to manage and maintain. Each module has a specific role, making the application more modular and easy to understand.
